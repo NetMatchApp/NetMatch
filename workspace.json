@@ -1,0 +1,9 @@
+{
+  "version": 2,
+  "projects": {
+    "api": "apps/api",
+    "api-interfaces": "libs/api-interfaces",
+    "net-match": "apps/net-match",
+    "net-match-e2e": "apps/net-match-e2e"
+  }
+}
