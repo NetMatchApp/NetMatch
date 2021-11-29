@@ -1,17 +1,17 @@
 {
-  "root": "apps/net-match-e2e",
-  "sourceRoot": "apps/net-match-e2e/src",
+  "root": "apps/web-e2e",
+  "sourceRoot": "apps/web-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nrwl/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/net-match-e2e/cypress.json",
-        "devServerTarget": "net-match:serve"
+        "cypressConfig": "apps/web-e2e/cypress.json",
+        "devServerTarget": "web:serve"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "net-match:serve:production"
+          "devServerTarget": "web:serve:production"
         }
       }
     },
@@ -19,10 +19,10 @@
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/net-match-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/web-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["net-match"]
+  "implicitDependencies": ["web"]
 }

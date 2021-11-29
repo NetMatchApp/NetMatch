@@ -13,7 +13,7 @@ export const App = () => {
   return (
     <>
       <div style={{ textAlign: 'center' }}>
-        <h1>Welcome to net-match!</h1>
+        <h1>Welcome to web!</h1>
         <img
           width="450"
           src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png"
