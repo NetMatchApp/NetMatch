@@ -1,4 +1,6 @@
 # Netmatch
 
-> * nx serve web -> Levantar el frontend
-> * nx serve api -> Levantar la api
+> npm install
+> docker-compose build
+> docker-compose up
+> trompos
