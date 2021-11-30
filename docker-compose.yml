@@ -1,6 +1,7 @@
 version: '3.8'
 services:
-  netmatch-web-service:
+
+  netmatch-web:
     build:
       context: ./
       target: netmatch-web
@@ -8,11 +9,15 @@ services:
       - 4200:4200
     volumes:
       - .:/app
+    depends_on:
+      - netmatch-api
 
-  netmatch-api-service:
+  netmatch-api:
     build: 
       context: ./
       target: netmatch-api
+    environment:
+      - PORT=3333
     ports:
       - 3333:3333
     volumes:
