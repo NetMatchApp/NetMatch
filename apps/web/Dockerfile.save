@@ -1,0 +1,13 @@
+FROM node:lts-alpine
+
+WORKDIR /app
+
+COPY/apps/web .
+
+ENV PORT=4200
+EXPOSE ${PORT}
+
+RUN npm install --production
+RUN npm install reflect-metadata tslib rxjs hbs
+
+CMD npx nx serve

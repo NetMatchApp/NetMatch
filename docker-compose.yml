@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  netmatch:
+    build: .
+    ports:
+      - 4200:4200
+      - 3333:3333
+    volumes:
+      - .:/app
+    tty: true
