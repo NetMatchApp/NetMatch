@@ -1,6 +1,6 @@
 {
   "/api": {
-    "target": "netmatch_netmatch-api:3333",
+    "target": "http://netmatch-api:3333",
     "secure": false
   }
 }
