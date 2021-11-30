@@ -1,6 +1,7 @@
 # Netmatch
 
-> npm install
-> docker-compose build
-> docker-compose up
-> trompos
+## How to do trompos
+- npm install
+- docker-compose build
+- docker-compose up
+- trompos
