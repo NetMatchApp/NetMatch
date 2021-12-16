@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@net-match/api-interfaces": ["libs/api-interfaces/src/index.ts"]
+      "@net-match/api-interfaces": ["libs/api-interfaces/src/index.ts"],
+      "@net-match/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
