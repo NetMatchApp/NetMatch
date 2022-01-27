@@ -12,4 +12,6 @@ export interface UserRepositoryInterface {
     getUsersByPosition(id: string): Promise<string[]>
 
     deleteUserById(id: string): Promise<void>
+
+    updateUserById(user: User): Promise<void>
 }

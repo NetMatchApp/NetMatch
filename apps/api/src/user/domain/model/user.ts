@@ -11,19 +11,16 @@ export class User {
     private _position: Position
 
 
-    constructor(id: string, userName: UserName, company?: Company, position?: Position) {
+    constructor(id: string, userName: string, company?: string, position?: string) {
         this._id = id;
-        this._userName = userName;
-        this._company = company;
-        this._position = position;
+        this._userName = new UserName(userName);
+        this._company = new Company(company);
+        this._position = new Position(position);
     }
 
     public static create(name: string, company?: string, position?: string){
         const id = uuid();
-        const userName = new UserName(name);
-        const userCompany = new Company(company);
-        const userPosition = new Position(position);
-        return new User(id, userName, userCompany, userPosition);
+        return new User(id, name, company, position);
     }
     
     

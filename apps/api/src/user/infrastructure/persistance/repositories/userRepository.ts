@@ -117,4 +117,27 @@ export class UserRepository implements UserRepositoryInterface {
 
         await UserModel.deleteOne({"id" : id})
     }
+
+
+    public async updateUserById(user: User): Promise<void> {
+     
+        const mongoose = new Mongoose();
+
+        await mongoose.connect(process.env.MONGO_URI);
+
+        const schema = new mongoose.Schema(userSchema)
+
+        const UserModel = mongoose.model('User', schema);
+
+        //mongoose.connection.close();
+
+        await UserModel.updateOne(
+            {"id" : user.id},
+            { $set: { "userName" : user.userName,
+                      "company" : user.companyName,
+                      "position" : user.positionName
+                    }  
+            }
+        )
+    }
 }
