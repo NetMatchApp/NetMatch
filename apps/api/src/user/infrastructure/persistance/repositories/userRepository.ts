@@ -6,7 +6,6 @@ import { Mongoose } from "mongoose"
 import 'dotenv/config'
 
 import { userSchema } from '../schemas/userSchema'
-import { ObjectId } from "mongodb";
 
 export class UserRepository implements UserRepositoryInterface {
 
