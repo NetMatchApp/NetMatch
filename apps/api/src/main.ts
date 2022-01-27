@@ -1,8 +1,6 @@
 import * as express from 'express';
 import bodyParser = require('body-parser');
-
-import { createUserController } from './user/application/createUser.controller';
-
+import { userRouter } from './routes/user.routes'
 
 const app = express();
 
@@ -10,16 +8,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 
-
-app.get('/api', (req, res) => {
-  res.send("greeting");
-});
-
-
-app.post('/api/user/createUser', (req, res) => {
-  createUserController(req, res);
-});
-
+app.use('/api/user', userRouter);
 
 
 const port = process.env.port || 3333;

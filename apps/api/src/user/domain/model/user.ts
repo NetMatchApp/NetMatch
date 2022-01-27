@@ -26,6 +26,11 @@ export class User {
         return new User(id, userName, userCompany, userPosition);
     }
     
+    
+    public get id() : string {
+        return this._id
+    }
+    
 
     public get userName() : string {
         return this._userName.name
