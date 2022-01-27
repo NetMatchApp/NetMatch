@@ -140,4 +140,19 @@ export class UserRepository implements UserRepositoryInterface {
             }
         )
     }
+
+    public async getAllUsers(): Promise<string[]> {
+        
+        const mongoose = new Mongoose();
+
+        await mongoose.connect(process.env.MONGO_URI);
+
+        const schema = new mongoose.Schema(userSchema)
+
+        const UserModel = mongoose.model('User', schema);
+
+        //mongoose.connection.close();
+
+        return await UserModel.find()
+    }
 }

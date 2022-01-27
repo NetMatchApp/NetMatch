@@ -3,6 +3,7 @@ import { CreateUserController } from '../user/infrastructure/controllers/createU
 import { DeleteUserController } from '../user/infrastructure/controllers/deleteUser.controller';
 import { GetUserController } from '../user/infrastructure/controllers/getUser.controller';
 import { UpdateUserController } from '../user/infrastructure/controllers/updateUser.controller';
+import { GetAllUsersController } from '../user/infrastructure/controllers/getAllUsers.controller';
 
 const userRouter = express.Router();
 
@@ -15,6 +16,11 @@ userRouter.post('/createUser', async (req, res) => {
 
 userRouter.get('/getUserById', async (req, res) => {
     await GetUserController.getUserById(req, res);
+});
+
+
+userRouter.get('/getUsers', async (req, res) => {
+    await GetAllUsersController.getAllUsers(req, res);
 });
    
 
