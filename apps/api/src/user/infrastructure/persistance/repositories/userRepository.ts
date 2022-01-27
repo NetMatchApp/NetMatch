@@ -101,4 +101,20 @@ export class UserRepository implements UserRepositoryInterface {
 
         return await UserModel.find({"position" : position})
     }
+
+
+    public async deleteUserById(id: string): Promise<void> {
+
+        const mongoose = new Mongoose();
+
+        await mongoose.connect(process.env.MONGO_URI);
+
+        const schema = new mongoose.Schema(userSchema)
+
+        const UserModel = mongoose.model('User', schema);
+
+        //mongoose.connection.close();
+
+        await UserModel.deleteOne({"id" : id})
+    }
 }

@@ -10,4 +10,6 @@ export interface UserRepositoryInterface {
     getUsersByCompany(id: string): Promise<string[]>
 
     getUsersByPosition(id: string): Promise<string[]>
+
+    deleteUserById(id: string): Promise<void>
 }
