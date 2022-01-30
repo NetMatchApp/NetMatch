@@ -10,7 +10,7 @@ export class CreateUserController {
 
     public static createUser(req: Request, res: Response){
 
-        const createUserCommand = new CreateUserCommand(req.body.name, req.body.mail, req.body.company, req.body.position)
+        const createUserCommand = new CreateUserCommand(req.body.mail, req.body.name, req.body.password, req.body.company, req.body.position)
         const userRepository = new UserRepository();
 
         try {

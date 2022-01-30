@@ -1,7 +1,8 @@
 export const userSchema = {
     id: String,
-    userName: String,
     mail: String,
+    userName: String,
+    password: String,
     company: String,
     position: String
 }

@@ -27,8 +27,9 @@ export class UserRepository implements UserRepositoryInterface {
 
         const doc = new UserModel({
             id: user.id,
-            userName: user.userName,
             mail: user.mail,
+            userName: user.userName,
+            password: user.password,
             company: user.companyName,
             position: user.positionName
         })
@@ -149,8 +150,9 @@ export class UserRepository implements UserRepositoryInterface {
 
         await UserModel.updateOne(
             {"id" : user.id},
-            { $set: { "userName" : user.userName,
-                      "mail" : user.mail,
+            { $set: { "mail" : user.mail,
+                      "userName" : user.userName,
+                      "password" : user.password,
                       "company" : user.companyName,
                       "position" : user.positionName
                     }  
