@@ -1,0 +1,44 @@
+#register-card {
+
+    background-color: #881e8b;
+    border-radius: 8px;
+    height: 410px;
+    margin: 6rem auto 8.1rem auto;
+    width: 329px;
+}
+
+#register-card-content {
+
+    padding: 12px 44px;
+}
+
+#register-card-title {
+
+    font-family: "Raleway Thin", sans-serif;
+    color: white;
+    text-align: center;
+}
+
+#register-card-title-underline {
+    background: -webkit-linear-gradient(right, #cd03f5, #edf1ef);
+    height: 2px;
+    margin: -1rem auto 0 auto;
+    width: 180px;
+  }
+
+#register-card-form {
+
+    margin-top: 10%;
+}
+
+.register-form {
+    
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-content {
+
+    padding-top: 14px;
+}

@@ -9,8 +9,7 @@ const userRouter = express.Router();
 
 
 userRouter.post('/createUser', async (req, res) => {
-    CreateUserController.createUser(req);
-    res.send("user was created")
+    CreateUserController.createUser(req, res);
 });
 
 

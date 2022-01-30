@@ -10,7 +10,7 @@ export class UpdateUserController {
 
     public static updateUserById(req: Request){
 
-        const updateUserCommand = new UpdateUserCommand(req.body.id, req.body.name, req.body.company, req.body.position)
+        const updateUserCommand = new UpdateUserCommand(req.body.id, req.body.name, req.body.mail, req.body.company, req.body.position)
         const userRepository = new UserRepository();
 
         updateUserService(userRepository, updateUserCommand);

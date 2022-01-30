@@ -1,5 +1,4 @@
 import { AppProps } from 'next/app';
-import Hola from './hola';
 import './styles.css';
 
 function CustomApp({ Component, pageProps }: AppProps) {

@@ -1,31 +1,44 @@
 import { v4 as uuid } from 'uuid'
 import { Company } from './user-company';
+import { Mail } from './user-mail';
 import { Position } from './user-position';
 import { UserName } from './user-username';
 
 export class User {
 
     private _id: string;
+    private _mail: Mail;
     private _userName: UserName
     private _company: Company
     private _position: Position
 
 
-    constructor(id: string, userName: string, company?: string, position?: string) {
+    constructor(id: string, name: string, mail: string, company?: string, position?: string) {
         this._id = id;
-        this._userName = new UserName(userName);
+        this._userName = new UserName(name);
+        this._mail = new Mail(mail);
         this._company = new Company(company);
         this._position = new Position(position);
     }
 
-    public static create(name: string, company?: string, position?: string){
+    public static create(name: string, mail: string, company?: string, position?: string){
         const id = uuid();
-        return new User(id, name, company, position);
+        return new User(id, name, mail, company, position);
     }
     
     
     public get id() : string {
         return this._id
+    }
+
+    
+    public get mail() : string {
+        return this._mail.mail
+    }
+    
+    
+    public set mail(newMail : string) {
+        this._mail = new Mail(newMail);
     }
     
 

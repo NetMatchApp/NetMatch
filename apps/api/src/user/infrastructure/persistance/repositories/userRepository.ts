@@ -6,7 +6,6 @@ import { Mongoose } from "mongoose"
 import 'dotenv/config'
 
 import { userSchema } from '../schemas/userSchema'
-import { ObjectId } from "mongodb";
 
 export class UserRepository implements UserRepositoryInterface {
 
@@ -29,6 +28,7 @@ export class UserRepository implements UserRepositoryInterface {
         const doc = new UserModel({
             id: user.id,
             userName: user.userName,
+            mail: user.mail,
             company: user.companyName,
             position: user.positionName
         })
@@ -68,6 +68,22 @@ export class UserRepository implements UserRepositoryInterface {
         //mongoose.connection.close();
 
         return await UserModel.findOne({"name" : name})
+    }
+
+
+    public async getUserByMail(mail: string): Promise<string> {
+        
+        const mongoose = new Mongoose();
+
+        await mongoose.connect(process.env.MONGO_URI);
+
+        const schema = new mongoose.Schema(userSchema)
+
+        const UserModel = mongoose.model('User', schema);
+
+        //mongoose.connection.close();
+
+        return await UserModel.findOne({"mail" : mail})
     }
 
 
@@ -134,6 +150,7 @@ export class UserRepository implements UserRepositoryInterface {
         await UserModel.updateOne(
             {"id" : user.id},
             { $set: { "userName" : user.userName,
+                      "mail" : user.mail,
                       "company" : user.companyName,
                       "position" : user.positionName
                     }  

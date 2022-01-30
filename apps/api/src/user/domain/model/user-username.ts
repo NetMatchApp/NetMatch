@@ -4,6 +4,9 @@ export class UserName {
 
 
     constructor(name: string){
+        if(name == undefined){
+            throw new Error("empty user name error")
+        }
         if(name.length == 0){
             throw new Error("empty user name error")
         }
