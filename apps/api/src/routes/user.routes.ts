@@ -4,6 +4,7 @@ import { DeleteUserController } from '../user/infrastructure/controllers/deleteU
 import { GetUserController } from '../user/infrastructure/controllers/getUser.controller';
 import { UpdateUserController } from '../user/infrastructure/controllers/updateUser.controller';
 import { GetAllUsersController } from '../user/infrastructure/controllers/getAllUsers.controller';
+import { RegisterUserController } from '../user/infrastructure/controllers/registerUser.controller';
 
 const userRouter = express.Router();
 
@@ -32,6 +33,11 @@ userRouter.delete('/deleteUserById', async (req, res) => {
 userRouter.post('/updateUserById', async (req, res) => {
     await UpdateUserController.updateUserById(req);
     res.send("user was updated")
+});
+
+
+userRouter.post('/registerUser', async (req, res) => {
+    RegisterUserController.registerUser(req, res)
 });
 
 

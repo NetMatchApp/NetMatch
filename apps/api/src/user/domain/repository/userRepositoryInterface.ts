@@ -5,6 +5,8 @@ export interface UserRepositoryInterface {
 
     getUserById(id: string): Promise<string>
 
+    getUserByMail(mail: string): Promise<string>
+
     getUserByName(name: string): Promise<string>
 
     getUsersByCompany(id: string): Promise<string[]>
