@@ -1,36 +1,72 @@
 import './index.module.css';
 
+import { Card, Textarea, Button, Container, Col, Text } from '@nextui-org/react'
+import axios from 'axios';
+import React from 'react';
+
+
 /* eslint-disable-next-line */
 export interface RegisterProps {}
 
-export function Register(props: RegisterProps) {
-  return (
-    <div id='register-card'>
-      <div id='register-card-content'>
 
-        <div id='register-card-title'>
-          <h1>Register</h1>
-          <div id='register-card-title-underline'></div>
-        </div>
+type myState = { alert: string};
+type myProps = unknown;
 
-        <div id='register-card-form'>
-          <form method="post" className='register-form'>
+export class Register extends React.Component<myProps, myState>{
 
-            <label htmlFor="user-name">name</label>
-            <input id='user-name' className='form-content' type="text" name='name' required />
+  constructor(props: RegisterProps){
+    super(props);
+    this.state = { alert: "" };
+    this.registerUser.bind(this)
+  }
 
-            <label htmlFor="user-company">company</label>
-            <input id='user-company' className='form-content' type="text" name='company' />
 
-            <label htmlFor="user-position">position</label>
-            <input id='user-position' className='form-content' type="text" name='position' />
+  registerUser = async (event) => {
+    event.preventDefault()
 
-          </form>
-        </div>
+    const name = event.target.userName.value;
+    const mail = event.target.mail.value;
+    const password = event.target.password.value;
+
+    try {
+      
+      const response = await axios.post('http://localhost:3333/api/user/registerUser', {
+        mail: mail,
+        name: name,
+        password: password
+      })
+
+      if(response.data == "user was registered"){
+        window.location.replace('/home')
+      }
+
+      this.setState({ alert: response.data})
+      
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  render() {
+      return (
         
-      </div>
-    </div>
-  );
+        <Container>
+          <Card>
+
+            <form onSubmit={this.registerUser}>
+              <Textarea label='user name'  id='userName' underlined size='xs' required color='secondary'></Textarea>
+              <Textarea label='mail' id='mail' underlined size='xs' required color='secondary'></Textarea>
+              <Textarea label='password' id='password' underlined size='xs' required color='secondary'></Textarea>
+              <Button type='submit' rounded bordered color="gradient" size={"md"}> register </Button>
+            </form>
+              <div> <Text color='red'>{this.state.alert}</Text> </div>
+            
+          </Card>
+      </Container>
+
+      );
+  }
 }
 
 export default Register;
