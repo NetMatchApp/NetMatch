@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(cors())
 
 
-app.use('/api/user', userRouter);
+app.use('/user', userRouter);
 
 
 const port = process.env.port || 3333;

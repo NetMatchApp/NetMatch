@@ -10,7 +10,7 @@ export class GetUserController {
     public static async getUserById(req: Request, res: Response){
 
         const userRepository = new UserRepository();
-        const getUserByIdQuery = new GetUserByIdQuery(req.body.id);
+        const getUserByIdQuery = new GetUserByIdQuery(req.params.id);
         
         const result = await getUserByIdService(userRepository, getUserByIdQuery);
 

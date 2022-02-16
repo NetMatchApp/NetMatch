@@ -10,7 +10,7 @@ export class DeleteUserController {
 
     public static deleteUserById(req: Request){
 
-        const deleteUserCommand = new DeleteUserCommand(req.body.id)
+        const deleteUserCommand = new DeleteUserCommand(req.params.id)
         const userRepository = new UserRepository();
 
         deleteUserService(userRepository, deleteUserCommand);

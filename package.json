@@ -11,6 +11,8 @@
   },
   "private": true,
   "dependencies": {
+    "@mantine/core": "^3.6.7",
+    "@mantine/hooks": "^3.6.7",
     "@nextui-org/react": "^1.0.2-beta.3",
     "@nrwl/next": "^13.3.7",
     "@types/mongoose": "^5.11.97",

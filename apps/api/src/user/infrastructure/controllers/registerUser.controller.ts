@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { exit } from "process";
 import { CreateUserCommand } from "../../application/commands/createUser.command";
 import { GetUserByMailQuery } from "../../application/queries/getUserByMail.query";
 import { createUserService } from "../../application/useCases/createUser.service";
