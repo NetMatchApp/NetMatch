@@ -1,6 +1,7 @@
 import * as express from 'express';
 import bodyParser = require('body-parser');
 import { userRouter } from './routes/user.routes'
+import { comunityRouter } from './routes/comunity.routes'
 import * as cors from 'cors'
 
 const app = express();
@@ -12,6 +13,7 @@ app.use(cors())
 
 
 app.use('/user', userRouter);
+app.use('/comunity', comunityRouter);
 
 
 const port = process.env.port || 3333;
