@@ -27,7 +27,9 @@ export class UserRepository implements UserRepositoryInterface {
 
         const doc = new UserModel({
             id: user.id,
+            mail: user.mail,
             userName: user.userName,
+            password: user.password,
             company: user.companyName,
             position: user.positionName
         })
@@ -67,6 +69,22 @@ export class UserRepository implements UserRepositoryInterface {
         //mongoose.connection.close();
 
         return await UserModel.findOne({"name" : name})
+    }
+
+
+    public async getUserByMail(mail: string): Promise<string> {
+        
+        const mongoose = new Mongoose();
+
+        await mongoose.connect(process.env.MONGO_URI);
+
+        const schema = new mongoose.Schema(userSchema)
+
+        const UserModel = mongoose.model('User', schema);
+
+        //mongoose.connection.close();
+
+        return await UserModel.findOne({"mail" : mail})
     }
 
 
@@ -132,7 +150,9 @@ export class UserRepository implements UserRepositoryInterface {
 
         await UserModel.updateOne(
             {"id" : user.id},
-            { $set: { "userName" : user.userName,
+            { $set: { "mail" : user.mail,
+                      "userName" : user.userName,
+                      "password" : user.password,
                       "company" : user.companyName,
                       "position" : user.positionName
                     }  

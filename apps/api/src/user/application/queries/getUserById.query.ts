@@ -1,4 +1,4 @@
-export class GetUserQuery {
+export class GetUserByIdQuery {
 
     private _id: string
 

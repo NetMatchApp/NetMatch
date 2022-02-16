@@ -1,15 +1,13 @@
-import { AppProps } from 'next/app';
-import Hola from './hola';
-import './styles.css';
+// 1. import `NextUIProvider` component
+import { NextUIProvider } from '@nextui-org/react';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
-    </>
+    // 2. Use at the root of your app
+    <NextUIProvider>
+      <Component {...pageProps} />
+    </NextUIProvider>
   );
 }
 
-export default CustomApp;
+export default MyApp;
